@@ -1,0 +1,70 @@
+// Problem#: 7920
+// Submission#: 2020241
+// The source code is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License
+// URI: http://creativecommons.org/licenses/by-nc-sa/3.0/
+// All Copyright reserved by Informatic Lab of Sun Yat-sen University
+#include <iostream>
+#include<string>
+using namespace std;
+int main()
+{
+    int n,m,i,j,k;
+    int** y=NULL;
+    int** z=NULL;
+
+    cin>>m;
+    y = new int*[m];
+    for(i=0;i<m;i++)
+        y[i]=new int[m];
+
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<m;j++)
+            cin>>y[i][j];
+    }
+
+    cin>>n;
+    z=new int*[n];
+    for(i=0;i<n;i++)
+        z[i]=new int[2];
+
+    for(i=0;i<n;i++)
+        for(j=0;j<2;j++)
+            cin>>z[i][j];
+
+    k=0;
+    while(k<m)
+    {
+       for(i=0;i<m;i++)
+       {
+           if(y[i][k]==1)
+           {
+               for(j=0;j<m;j++)
+               {
+                   if(y[k][j]==1||y[i][j]==1)
+                       y[i][j]=1;
+
+               }
+           }
+       }
+
+        k++;
+    }
+
+
+ for(i=0;i<n;i++)
+ {
+     if(y[z[i][0]][z[i][1]]==1)
+        cout<<"1";
+     else
+        cout<<"0";
+
+     cout<<" ";
+ }
+cout<<endl;
+
+ 
+
+return 0;
+
+}                                 
