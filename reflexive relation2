@@ -1,0 +1,60 @@
+// Problem#: 7903
+// Submission#: 2018374
+// The source code is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License
+// URI: http://creativecommons.org/licenses/by-nc-sa/3.0/
+// All Copyright reserved by Informatic Lab of Sun Yat-sen University
+#include <iostream>
+#include<string>
+using namespace std;
+int main()
+{
+    int n,m,i,j,x[10000],y[10000][2];
+
+    cin>>n;
+    for(i=0;i<n;i++)
+        cin>>x[i];
+    cin>>m;
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<2;j++)
+            cin>>y[i][j];
+    }
+
+    if(m<n)
+    {
+        cout<<"0"<<endl;
+        return 0;
+    }
+    else
+    {
+        for(i=0;i<m;i++)
+        {
+            if(y[i][0]==y[i][1])
+            {
+                for(j=0;j<n;j++)
+                {
+                    if(x[j]==y[i][1])
+                    {   x[j]=-1;
+                        break;
+                    }
+                }
+            }
+        }
+
+        for(i=0;i<n;i++)
+        {
+            if(x[i]!=-1)
+            {
+                cout<<"0"<<endl;
+                return 0;
+            }
+        }
+    
+
+        cout<<"1"<<endl;
+    
+    }
+
+
+    return 0;
+    }                                 
