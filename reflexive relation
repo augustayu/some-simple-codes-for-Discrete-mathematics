@@ -1,0 +1,33 @@
+// Problem#: 7899
+// Submission#: 2017757
+// The source code is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License
+// URI: http://creativecommons.org/licenses/by-nc-sa/3.0/
+// All Copyright reserved by Informatic Lab of Sun Yat-sen University
+#include <iostream>
+#include <stdlib.h> 
+#include <stdio.h> 
+#include <string>
+#include<vector>
+#include<set>
+#include<map>
+using namespace std;
+typedef set<int> Set;
+ 
+typedef set<pair<int, int> > Relation;
+ 
+bool reflexive(const Relation &R, const Set &A)
+ 
+{
+set<int>::iterator it=A.begin();
+while(it!=A.end())
+{
+    
+    if(R.find(make_pair (*it,*it))==R.end())
+        return false ;
+    it++;
+}
+return true;
+    
+
+ 
+}                                 
