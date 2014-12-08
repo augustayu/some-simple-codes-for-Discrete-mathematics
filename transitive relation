@@ -1,0 +1,47 @@
+// Problem#: 7902
+// Submission#: 2018362
+// The source code is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License
+// URI: http://creativecommons.org/licenses/by-nc-sa/3.0/
+// All Copyright reserved by Informatic Lab of Sun Yat-sen University
+#include <iostream>
+#include <stdlib.h> 
+#include <stdio.h> 
+#include <string>
+#include<vector>
+#include<set>
+#include<map>
+#include <utility>
+using namespace std;
+typedef set<int> Set;
+ 
+typedef set<pair<int, int> > Relation;
+ 
+bool transitive(const Relation &R, const Set &A)
+ 
+//R是A上的关系。如果R具有传递性，则返回true, 否则，返回false.
+ 
+{
+ 
+
+    set<pair<int, int> > ::iterator it1,it2,it3;
+        it1=R.begin ();
+    while(it1!=R.end())
+    {
+        for(it2=R.begin();it2!=R.end();it2++)
+        {
+           if(it2->first ==it1->second )
+           {
+               it3=R.begin ();
+               while(it3!=R.end())
+               {
+                   if(R.find(make_pair(it1->first,it2->second))==R.end())
+                       return false;
+                   it3++;
+               }
+           }
+        }
+        it1++;
+    }
+
+    return true;
+}                                 
